@@ -11,15 +11,15 @@ int wh;
 string c[10000];
 int cnt;
 bool flag;
-void cl(){
+void cl(string in){
     if(flag==true&&in!="endwh"){
         cnt++;
-        in[cnt]=in;
+        c[cnt]=in;
     }
     else if(in=="endwh"){
         flag=false;
         for(int i=1;i<=cnt;i++){
-            cl(c[i]);
+            cl(in);
         }
         cnt=0;
     }
@@ -38,7 +38,7 @@ void cl(){
     else if(in=="for"){
        string name;
        cin>>name;
-       wh=var_num[wh];
+       wh=var_num[name];
        flag=true;//接受之后的指令
     }
     else if(in=="input1"){
@@ -82,10 +82,10 @@ void cl(){
     else if(in=="system"){
         string command;
         getline(cin,command);
-        system(command.c_str);
+        system(command.c_str());
     }
     else if(in=="num_count"){
-        string n1,n2;
+        int n1,n2;
         char x;
         cin>>n1>>x>>n2;
         if(x=='+'){
